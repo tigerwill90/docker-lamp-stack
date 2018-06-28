@@ -33,6 +33,7 @@ services:
       PMA_HOST: mysql
   memcd:
     image: memcached:latest
+    container_name: memcd
     ports:
       - 11211:11211
     volumes:
