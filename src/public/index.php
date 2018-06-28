@@ -1,2 +1,3 @@
 <?php
-  echo "It's work";
+  echo apache_get_version();
+  phpinfo();

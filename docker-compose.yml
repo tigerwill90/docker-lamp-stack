@@ -1,7 +1,7 @@
 version: '3'
 services:
   httpd:
-    image: tigerwill90/docker-apache-dev:0.x
+    image: tigerwill90/docker-apache-dev
     container_name: httpd
     ports:
       - 80:80
@@ -9,3 +9,33 @@ services:
     volumes:
       - ./src:/var/www/html/
       - ./logs/apache2:/var/log/apache2
+    environment:
+      VIRTUAL_HOST: ${VIRTUAL_HOST}
+  mysql:
+    image: mysql:5.7.22
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 3306:3306
+    restart: always
+    volumes:
+      - ./db/mysql:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin
+    restart: always
+    depends_on:
+      - mysql
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: mysql
+  memcd:
+    image: memcached:latest
+    ports:
+      - 11211:11211
+    volumes:
+      - ./logs/memcd:/var/log/memcd
+    depends_on:
+      - httpd
