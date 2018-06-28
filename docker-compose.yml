@@ -1,0 +1,11 @@
+version: '3'
+services:
+  httpd:
+    image: tigerwill90/docker-apache-dev:0.x
+    container_name: httpd
+    ports:
+      - 80:80
+    restart: always
+    volumes:
+      - ./src:/var/www/html/
+      - ./logs/apache2:/var/log/apache2
