@@ -9,6 +9,6 @@
   if($memcd->get('msg')) {
     echo $memcd->get('msg');
   } else {
-    echo "no msg cached";
-    $memcd->set('msg', 'Memcached is working');
+    echo "No cache : it's work !";
+    $memcd->set('msg', 'Cached : it\'s work !');
   }
