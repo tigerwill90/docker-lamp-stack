@@ -37,6 +37,9 @@ services:
     environment:
       PMA_HOST: mysql
   memcached:
-    image: 'bitnami/memcached:latest'
+    image: bitnami/memcached:latest
+    container_name: memcached
+    ports:
+      - 11211:11211
     networks:
       - app-tier
