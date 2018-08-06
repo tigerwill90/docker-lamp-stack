@@ -1,0 +1,23 @@
+{
+    "name": "daemon/avengers",
+    "description": "A new Iron Man story",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Captain America",
+            "email": "captain@avengers.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+
+    },
+    "require-dev": {
+
+    },
+    "autoload": {
+      "psr-4": {
+        "App\\": "app/"
+      }
+    }
+}

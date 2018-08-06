@@ -1,3 +1,6 @@
 /logs/apache2/
 /logs/memcd/
 /db/mysql/
+/src/vendor/
+/vhost/
+Dockerfile
