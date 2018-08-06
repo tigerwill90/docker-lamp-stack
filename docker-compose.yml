@@ -4,11 +4,11 @@ networks:
     driver: bridge
 services:
   httpd:
-    build: tigerwill90/docker-apache-dev
+    image: tigerwill90/docker-apache-dev
     container_name: httpd
     ports:
-      - "80:80"
-      - "443:443"
+      - 80:80
+      - 443:443
     restart: always
     volumes:
       - ./src:/var/www/html/
@@ -23,7 +23,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
     ports:
-      - "3306:3306"
+      - 3306:3306
     restart: always
     volumes:
       - ./db/mysql:/var/lib/mysql
@@ -34,13 +34,13 @@ services:
     depends_on:
       - mysql
     ports:
-      - "8080:80"
+      - 8080:80
     environment:
       PMA_HOST: mysql
   memcached:
     image: bitnami/memcached:latest
     container_name: memcached
     ports:
-      - "11211:11211"
+      - 11211:11211
     networks:
       - app-tier
